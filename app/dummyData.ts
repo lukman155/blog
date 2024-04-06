@@ -43,5 +43,5 @@ export const getCategorisedArticles = () => {
 
 export const getArticleById = (id: number) => {
   // Simulate fetching data from an API or database
-  return dummyArticles.technology.find((article) => article.id === id);
+  return dummyArticles.technology.find((article) => article.id == id);
 }
