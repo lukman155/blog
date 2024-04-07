@@ -33,6 +33,7 @@ function Header() {
     h1 {
       font-weight: 300;
       color: #333;
+      line-height: 32px;
     }
 
     .fullstop {
