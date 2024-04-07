@@ -195,14 +195,14 @@ const Home = () => {
     <section className="container">
       <div className="article-container">
         {filteredArticles.map((article, index) => (
-          <ArticleCard article={article} key={index} />
+          <ArticleCard article={article} index={index} />
         ))}
       </div>
 
       <style jsx>{`
         .container {
           margin: 0 auto;
-          padding: 0 1rem;
+          padding: 1rem;
           max-width: 1200px;
         }
 
@@ -212,7 +212,7 @@ const Home = () => {
           gap: 2rem;
         }
 
-        @media (min-width: 580px) {
+        @media (min-width: 680px) {
           .title {
             font-size: 2rem;
           }

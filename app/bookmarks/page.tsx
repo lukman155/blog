@@ -17,18 +17,18 @@ const BookmarksPage = () => {
       <style jsx>{`
         .bookmarks-container {
           margin: 0 auto;
-          padding: 0 1rem;
+          padding: 1.5rem;
         }
 
         h2 {
           text-align: center;
-          padding: 1rem 0;
+          padding: 0 0 1rem 0;
         }
 
         .articles-grid {
           display: grid;
           grid-template-columns: repeat(1, minmax(0, 1fr));
-          gap: 2rem;
+          gap: 3rem;
         }
 
         @media (min-width: 580px) {

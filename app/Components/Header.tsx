@@ -24,6 +24,7 @@ function Header() {
     header {
       margin: 0 auto;
       padding: 2rem 1rem;
+      width: 100%;
       max-width: 1200px;
       display: flex;
       justify-content: space-between;
