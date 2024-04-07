@@ -1,6 +1,8 @@
 export type ArticleItem = {
-  id: string
-  title: string
-  date: string
-  category: string
+  title: string,
+  date: string,
+  urlToImage: string,
+  author: string,
+  description: string,
+
 }

@@ -36,7 +36,7 @@ const dummyArticles = {
   ],
 };
 
-export const getCategorisedArticles = () => {
+export const getCategorisedArticles = async() => {
   // Simulate fetching data from an API or database
   return dummyArticles;
 };
