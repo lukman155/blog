@@ -1,18 +1,17 @@
 'use client'
 import dynamic from 'next/dynamic'
 import { ArticleItem } from '../types';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const ArticleCard = dynamic(() => import('../Components/ArticleCard'), { ssr: false })
 
 
-interface Props {
-  article: ArticleItem;
-}
 
 const BookmarksPage = () => {
-  // Retrieve bookmarked articles from localStorage
+  // Initialize bookmarks state with an empty object
+  const [bookmarks, setBookmarks] = useState({});
 
+  // Use useEffect to retrieve bookmarked articles from localStorage
   useEffect(() => {
     // Check if window is defined (i.e., if the code is running in the browser environment)
     if (typeof window !== 'undefined') {
@@ -21,6 +20,7 @@ const BookmarksPage = () => {
       setBookmarks(parsedBookmarks);
     }
   }, []);
+
   return (
     <div className="bookmarks-container">
       <h2>Saved Bookmarks</h2>
