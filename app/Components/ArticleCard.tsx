@@ -92,6 +92,7 @@ const ArticleCard = ({ article, index }: Props) => {
         }
 
         .card:hover {
+          transform: translateY(-5px);
           box-shadow:
             0 1px 1px hsl(0deg 0% 0% / 0.075),
             0 2px 2px hsl(0deg 0% 0% / 0.075),

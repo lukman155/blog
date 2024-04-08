@@ -74,6 +74,10 @@ const ArticleModal: React.FC<ModalProps> = ({ article, onClose }) => {
         p {
           margin-top: 5px;
         }
+
+        a {
+          text-decoration: underline;
+        }
       `}</style>
     </div>
   );

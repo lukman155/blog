@@ -11,7 +11,7 @@ function Header() {
 
   return (
     <header>
-        <Link href={'/'}><h1>minimal blog<span className="fullstop">.</span></h1></Link>
+        <Link href={'/'}><h1>minimal blog<span className='error-wrapper'><span className="fullstop error">.</span></span></h1></Link>
         <div className="links">
           <Link  href={'/'}><p className={isActive('/')? 'active': ''}>Trending</p></Link>
           <span>•</span>
@@ -25,10 +25,18 @@ function Header() {
       margin: 0 auto;
       padding: 2rem 1rem;
       width: 100%;
-      max-width: 1200px;
+      max-width: 900px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+
+    .error:before, .error:after {
+      width:100%;
+      position: absolute;
+      content: ".";
+      transform: translate(-50%, -85%);
+      z-index: -2;
     }
 
     h1 {

@@ -24,6 +24,7 @@ const Home = () => {
       </div>
       <button onClick={handleReload}>Reload</button>
       <style jsx>{`
+
         .error-container {
           display: flex;
           flex-direction: column;
@@ -32,33 +33,9 @@ const Home = () => {
           align-items: center; /* Vertically center */
           height: 70vh;
         }
-        div {
+
+        .error {
           font-size: 30px;
-        }
-
-        .error-wrapper {
-          position:relative;
-        }
-
-        .error:before, .error:after {
-          width:100%;
-          position: absolute;
-          content: "Failed to load";
-          transform: translate(-50%, -50%);
-          z-index: -2;
-        }
-        .error:before {
-          top: 49%;
-          left: 49%;
-          color: rgba(233, 30, 99, 0.8);
-          animation: distort1 300ms linear infinite;
-          z-index: -1;
-        }
-        .error:after {
-          top: 51%;
-          left: 51%;
-          color: rgba(3, 169, 244, 0.8);
-          animation: distort2 300ms linear infinite;
         }
 
         button {
@@ -75,82 +52,6 @@ const Home = () => {
           outline-offset: 8px;
         }
 
-        @keyframes distort1 {
-          0% {
-            top: 49%;
-            left: 49%;
-          }
-          12.5% {
-            top: 49%;
-            left: 50%;
-          }
-          25% {
-            top: 49%;
-            left: 51%;
-          }
-          37.5% {
-            top: 50%;
-            left: 51%;
-          }
-          50% {
-            top: 51%;
-            left: 51%;
-          }
-          62.5% {
-            top: 51%;
-            left: 50%;
-          }
-          75% {
-            top: 51%;
-            left: 49%;
-          }
-          87.5% {
-            top: 50%;
-            left: 49%;
-          }
-          100% {
-            top: 49%;
-            left: 49%;
-          }
-        }
-        @keyframes distort2 {
-          0% {
-            top: 51%;
-            left: 51%;
-          }
-          12.5% {
-            top: 50%;
-            left: 51%;
-          }
-          25% {
-            top: 49%;
-            left: 51%;
-          }
-          37.5% {
-            top: 49%;
-            left: 50%;
-          }
-          50% {
-            top: 49%;
-            left: 49%;
-          }
-          62.5% {
-            top: 50%;
-            left: 49%;
-          }
-          75% {
-            top: 51%;
-            left: 49%;
-          }
-          87.5% {
-            top: 51%;
-            left: 50%;
-          }
-          100% {
-            top: 51%;
-            left: 51%;
-          }
-        }
       `}</style>
     </div>
   );
@@ -158,33 +59,6 @@ const Home = () => {
   if (!data) return (
     <div className="loading-container">
       <span className="loader"></span>
-      <style jsx>{`
-        .loading-container {
-          display: flex;
-          justify-content: center; /* Horizontally center */
-          align-items: center; /* Vertically center */
-          height: 100vh;
-        }
-        .loader {
-          width: 48px;
-          height: 48px;
-          border: 5px solid #FFF;
-          border-bottom-color: transparent;
-          border-radius: 50%;
-          display: inline-block;
-          box-sizing: border-box;
-          animation: rotation 1s linear infinite;
-        }
-
-        @keyframes rotation {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        } 
-      `}</style>
     </div>
   );
 

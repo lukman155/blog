@@ -5,11 +5,12 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="container">
-        <p>&copy; {new Date().getFullYear()} Lukman Abdulkarim | <span><a href='/lukman.studiomonseur.com'>Website</a> • <a href='/github.com/lukman155'>Github</a></span></p>
+        <p>&copy; {new Date().getFullYear()} Lukman Abdulkarim | <span><a href='https://lukman.studiomonseur.com/'>Website</a> • <a href='https://github.com/lukman155'>Github</a></span></p>
       </div>
       <style jsx>{`
         .footer {
-          background-color: #777;
+          border-top: 1px solid #333;
+          background-color: white;
           color: #ddd;
           padding: 20px 0;
           text-align: center;
@@ -22,7 +23,7 @@ const Footer = () => {
         }
 
         a {
-          color: white;
+          color: #999;
         }
 
         a:hover {
@@ -30,6 +31,7 @@ const Footer = () => {
         }
 
         p {
+          color: #333;
           margin: 0;
         }
       `}</style>
