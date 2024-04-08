@@ -20,28 +20,31 @@ const ArticleCard = ({ article, index }: Props) => {
 
 
   useEffect(() => {
-    const storedBookmarks = localStorage.getItem("bookmarkedArticles");
-    const bookmarks = storedBookmarks ? JSON.parse(storedBookmarks) : {};
-    setIsBookmarked(!!bookmarks[article.url]);
+    if (typeof window !== 'undefined') {
+      const storedBookmarks = localStorage.getItem("bookmarkedArticles");
+      const bookmarks = storedBookmarks ? JSON.parse(storedBookmarks) : {};
+      setIsBookmarked(!!bookmarks[article.url]);
+    }
   }, [article.url]);
-
-
+  
   const toggleBookmark = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    setIsBookmarked(prevIsBookmarked => {
-      const newBookmarkStatus = !prevIsBookmarked;
-      const storedBookmarks = localStorage.getItem("bookmarkedArticles");
-      let bookmarks = storedBookmarks ? JSON.parse(storedBookmarks) : {};
-
-      if (newBookmarkStatus) {
-        bookmarks[article.url] = article;
-      } else {
-        delete bookmarks[article.url];
-      }
-
-      localStorage.setItem("bookmarkedArticles", JSON.stringify(bookmarks));
-      return newBookmarkStatus;
-    });
+    if (typeof window !== 'undefined') {
+      setIsBookmarked(prevIsBookmarked => {
+        const newBookmarkStatus = !prevIsBookmarked;
+        const storedBookmarks = localStorage.getItem("bookmarkedArticles");
+        let bookmarks = storedBookmarks ? JSON.parse(storedBookmarks) : {};
+  
+        if (newBookmarkStatus) {
+          bookmarks[article.url] = article;
+        } else {
+          delete bookmarks[article.url];
+        }
+  
+        localStorage.setItem("bookmarkedArticles", JSON.stringify(bookmarks));
+        return newBookmarkStatus;
+      });
+    }
   };
 
   return (
