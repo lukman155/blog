@@ -1,4 +1,6 @@
 import React from 'react';
+import Image from 'next/image'
+
 import { ArticleItem } from '../types';
 import { formatDateTime, shortenAuthor } from '../helpers';
 

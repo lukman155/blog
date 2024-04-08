@@ -45,16 +45,14 @@ const ArticleCard = ({ article, index }: Props) => {
       <div className='card-container'>
         <div className="img-wrapper">
           {article.urlToImage ? (
-            <Image
+            <img
               src={article.urlToImage}
               alt={article.title}
-              fill={true}
             />
           ) : (
-            <Image
+            <img
               src="/placeholder.jpg"
               alt={article.title}
-              fill={true}
             />
           )} 
         </div>
@@ -122,6 +120,11 @@ const ArticleCard = ({ article, index }: Props) => {
           vertical-align: middle;
           border-radius: 7px;
           overflow: hidden;
+        }
+
+        img {
+          width:100%;
+          height:100%;
         }
 
         .card-content {

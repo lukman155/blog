@@ -76,8 +76,8 @@ const Home = () => {
   return (
     <section className="container">
       <div className="article-container">
-        {filteredArticles.map((article , index) => (
-          <ArticleCard key={index} article={article} />
+        {filteredArticles.map((article: ArticleItem , index: number) => (
+          <ArticleCard key={index} index={index} article={article} />
         ))}
       </div>
 

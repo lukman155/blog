@@ -16,7 +16,7 @@ const BookmarksPage = () => {
       <h2>Saved Bookmarks</h2>
       <div className="articles-grid">
         {Object.values(bookmarks).map((article, index) => (
-          <ArticleCard key={index} article={article} />
+          <ArticleCard key={index} index={index} article={article as ArticleItem} />
         ))}
       </div>
       <style jsx>{`
