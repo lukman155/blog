@@ -1,20 +1,13 @@
 'use client';
 import ArticleCard from "./Components/ArticleCard";
 import { ArticleItem } from "./types/index";
-import useSWR from 'swr'
-
-
-interface Props {
-  article: ArticleItem;
-  index: number;
-}
+import useSWR from 'swr';
 
 const url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=be73dd1873b24f07a80978fce1435ec0";
 
 const fetcher = async() => {
   const response = await fetch(url);
   const data = await response.json();
-  console.log(data);
   return data
 };
 
@@ -22,7 +15,7 @@ const Home = () => {
   const { data, error, mutate } = useSWR('homepage', fetcher);
 
   const handleReload = () => {
-    mutate(); // Trigger data reload
+    mutate();
   };
 
   if (error) return (

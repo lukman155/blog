@@ -36,7 +36,7 @@ const BookmarksPage = () => {
           gap: 3rem;
         }
 
-        @media (min-width: 580px) {
+        @media (min-width: 680px) {
 
         .title {
           font-size: 2rem;
