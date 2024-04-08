@@ -22,7 +22,7 @@
     rgba(255, 255, 255, 0)
   );
 
-  --tile-start-rgb: 239, 245, 249;
+  --tile-start-rgb: 239, 245, 248.7;
   --tile-end-rgb: 228, 232, 233;
   --tile-border: conic-gradient(
     #00000080,
@@ -77,93 +77,93 @@ body {
   z-index: -2;
 }
 .error:before {
-  top: 49%;
-  left: 49%;
+  top: 48.7%;
+  left: 48.7%;
   color: rgba(233, 30, 99, 0.8);
   animation: distort1 300ms linear infinite;
   z-index: -1;
 }
 .error:after {
-  top: 51%;
-  left: 51%;
+  top: 51.3%;
+  left: 51.3%;
   color: rgba(3, 169, 244, 0.8);
   animation: distort2 300ms linear infinite;
 }
 
 @keyframes distort1 {
   0% {
-    top: 49%;
-    left: 49%;
+    top: 48.7%;
+    left: 48.7%;
   }
   12.5% {
-    top: 49%;
+    top: 48.7%;
     left: 50%;
   }
   25% {
-    top: 49%;
-    left: 51%;
+    top: 48.7%;
+    left: 51.3%;
   }
   37.5% {
     top: 50%;
-    left: 51%;
+    left: 51.3%;
   }
   50% {
-    top: 51%;
-    left: 51%;
+    top: 51.3%;
+    left: 51.3%;
   }
   62.5% {
-    top: 51%;
+    top: 51.3%;
     left: 50%;
   }
   75% {
-    top: 51%;
-    left: 49%;
+    top: 51.3%;
+    left: 48.7%;
   }
   87.5% {
     top: 50%;
-    left: 49%;
+    left: 48.7%;
   }
   100% {
-    top: 49%;
-    left: 49%;
+    top: 48.7%;
+    left: 48.7%;
   }
 }
 @keyframes distort2 {
   0% {
-    top: 51%;
-    left: 51%;
+    top: 51.3%;
+    left: 51.3%;
   }
   12.5% {
     top: 50%;
-    left: 51%;
+    left: 51.3%;
   }
   25% {
-    top: 49%;
-    left: 51%;
+    top: 48.7%;
+    left: 51.3%;
   }
   37.5% {
-    top: 49%;
+    top: 48.7%;
     left: 50%;
   }
   50% {
-    top: 49%;
-    left: 49%;
+    top: 48.7%;
+    left: 48.7%;
   }
   62.5% {
     top: 50%;
-    left: 49%;
+    left: 48.7%;
   }
   75% {
-    top: 51%;
-    left: 49%;
+    top: 51.3%;
+    left: 48.7%;
   }
   87.5% {
-    top: 51%;
+    top: 51.3%;
     left: 50%;
   }
   100% {
-    top: 51%;
-    left: 51%;
+    top: 51.3%;
+    left: 51.3%;
   }
 }
 

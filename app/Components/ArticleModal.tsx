@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArticleItem } from '../types';
-import { formatDateTime, shortenAuthor } from './helpers';
+import { formatDateTime, shortenAuthor } from '../helpers';
 
 interface ModalProps {
   article: ArticleItem;
@@ -11,9 +11,6 @@ const ArticleModal: React.FC<ModalProps> = ({ article, onClose }) => {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="close-btn" onClick={onClose}>
-          Close
-        </button>
         <div className="article-details">
           <h2>{article.title}</h2>
           <img src={article.urlToImage} alt={article.title} />

@@ -1,5 +1,10 @@
 'use client'
 import ArticleCard from '../Components/ArticleCard';
+import { ArticleItem } from '../types';
+
+interface Props {
+  article: ArticleItem;
+}
 
 const BookmarksPage = () => {
   // Retrieve bookmarked articles from localStorage

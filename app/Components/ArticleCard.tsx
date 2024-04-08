@@ -2,7 +2,7 @@
 import type { ArticleItem } from "../types";
 import Image from 'next/image'
 import { useState } from "react";
-import { shortenAuthor, formatDateTime } from "./helpers";
+import { shortenAuthor, formatDateTime } from "../helpers";
 import ArticleModal from './ArticleModal';
 interface Props {
   article: ArticleItem;
@@ -89,10 +89,12 @@ const ArticleCard = ({ article, index }: Props) => {
           border-radius: 10px;
           cursor: pointer;
           transition: .2s;
+          position:relative;
+          top: 0;
         }
 
         .card:hover {
-          transform: translateY(-5px);
+          top:-5px;
           box-shadow:
             0 1px 1px hsl(0deg 0% 0% / 0.075),
             0 2px 2px hsl(0deg 0% 0% / 0.075),

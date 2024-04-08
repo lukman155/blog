@@ -1,12 +1,20 @@
 'use client';
 import ArticleCard from "./Components/ArticleCard";
+import { ArticleItem } from "./types/index";
 import useSWR from 'swr'
+
+
+interface Props {
+  article: ArticleItem;
+  index: number;
+}
 
 const url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=be73dd1873b24f07a80978fce1435ec0";
 
 const fetcher = async() => {
   const response = await fetch(url);
   const data = await response.json();
+  console.log(data);
   return data
 };
 
@@ -63,13 +71,13 @@ const Home = () => {
   );
 
   // Filter out removed articles
-  const filteredArticles = data.articles.filter(article => article.source.name !== '[Removed]');
+  const filteredArticles = data.articles.filter((article: { source: { name: string; }; }) => article.source.name !== '[Removed]');
 
   return (
     <section className="container">
       <div className="article-container">
-        {filteredArticles.map((article, index) => (
-          <ArticleCard article={article} index={index} />
+        {filteredArticles.map((article , index) => (
+          <ArticleCard key={index} article={article} />
         ))}
       </div>
 
@@ -78,6 +86,7 @@ const Home = () => {
           margin: 0 auto;
           padding: 1rem;
           max-width: 1200px;
+          position: relative
         }
 
         .article-container {
