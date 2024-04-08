@@ -1,25 +1,25 @@
 'use client'
-import dynamic from 'next/dynamic'
-import { ArticleItem } from '../types';
 import { useEffect, useState } from 'react';
-
-const ArticleCard = dynamic(() => import('../Components/ArticleCard'), { ssr: false })
-
-
+import { ArticleItem } from '../types';
+import ArticleCard from '../Components/ArticleCard'; // Assuming ArticleCard is a default export
 
 const BookmarksPage = () => {
-  // Initialize bookmarks state with an empty object
+  // State to store bookmarks
   const [bookmarks, setBookmarks] = useState({});
 
-  // Use useEffect to retrieve bookmarked articles from localStorage
+  // Effect hook to load bookmarks from localStorage
   useEffect(() => {
-    // Check if window is defined (i.e., if the code is running in the browser environment)
+    loadBookmarksFromStorage();
+  }, []);
+
+  // Function to load bookmarks from localStorage
+  const loadBookmarksFromStorage = () => {
     if (typeof window !== 'undefined') {
       const storedBookmarks = localStorage.getItem("bookmarkedArticles");
       const parsedBookmarks = storedBookmarks ? JSON.parse(storedBookmarks) : {};
       setBookmarks(parsedBookmarks);
     }
-  }, []);
+  };
 
   return (
     <div className="bookmarks-container">
@@ -47,21 +47,15 @@ const BookmarksPage = () => {
         }
 
         @media (min-width: 680px) {
-
-        .title {
-          font-size: 2rem;
-        }
           .articles-grid {
             grid-template-columns: repeat(2, minmax(0, 1fr));
           }
         }
 
         @media (min-width: 1080px) {
-
           .bookmarks-container {
             padding: 0 4rem;
           }
-
           .articles-grid {
             grid-template-columns: repeat(3, minmax(0, 1fr));
           }
