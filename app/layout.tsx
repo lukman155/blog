@@ -1,18 +1,29 @@
+'use client';
 import dynamic from 'next/dynamic';
-import type { Metadata } from "next";
+
 import { Inter } from "next/font/google";
 import { Poppins } from "next/font/google";
+import { useState, useEffect } from 'react';
 
 import "./globals.css";
-// import Header from "./Components/Header";
-// import Footer from "./Components/Footer";
+
+
+const Dynamic = ({ children }: { children: React.ReactNode }) => {
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) {
+    return null;
+  }
+
+  return <>{children}</>;
+};
 
 const poppins = Poppins({ weight: '400', subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description: "Designed and developed by the BattleDev",
-};
 
 const Header = dynamic(() => import("./Components/Header"), { ssr: false });
 
@@ -28,7 +39,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={poppins.className}>
         <Header />
-          {children}
+        <Dynamic>{children}</Dynamic>
         <Footer />
       </body>
     </html>
