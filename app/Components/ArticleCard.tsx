@@ -1,7 +1,7 @@
 
 import type { ArticleItem } from "../types";
 import Image from 'next/image'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { shortenAuthor, formatDateTime } from "../helpers";
 import ArticleModal from './ArticleModal';
 interface Props {
@@ -10,42 +10,39 @@ interface Props {
 }
 
 const ArticleCard = ({ article, index }: Props) => {
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isBookmarked, setIsBookmarked] = useState(false);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
 
 
-  const [isBookmarked, setIsBookmarked] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const storedBookmarks = localStorage.getItem("bookmarkedArticles");
-      const bookmarks = storedBookmarks ? JSON.parse(storedBookmarks) : {};
-      return !!bookmarks[article.url];
-    }
-    return false;
-  });
+  useEffect(() => {
+    const storedBookmarks = localStorage.getItem("bookmarkedArticles");
+    const bookmarks = storedBookmarks ? JSON.parse(storedBookmarks) : {};
+    setIsBookmarked(!!bookmarks[article.url]);
+  }, [article.url]);
+
 
   const toggleBookmark = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     setIsBookmarked(prevIsBookmarked => {
       const newBookmarkStatus = !prevIsBookmarked;
-      if (typeof window !== 'undefined') {
-        const storedBookmarks = localStorage.getItem("bookmarkedArticles");
-        let bookmarks = storedBookmarks ? JSON.parse(storedBookmarks) : {};
+      const storedBookmarks = localStorage.getItem("bookmarkedArticles");
+      let bookmarks = storedBookmarks ? JSON.parse(storedBookmarks) : {};
 
-        if (newBookmarkStatus) {
-          bookmarks[article.url] = article;
-        } else {
-          delete bookmarks[article.url];
-        }
-
-        localStorage.setItem("bookmarkedArticles", JSON.stringify(bookmarks));
+      if (newBookmarkStatus) {
+        bookmarks[article.url] = article;
+      } else {
+        delete bookmarks[article.url];
       }
+
+      localStorage.setItem("bookmarkedArticles", JSON.stringify(bookmarks));
       return newBookmarkStatus;
     });
   };
-
 
   return (
     <div key={index} className="card" onClick={toggleModal}>
