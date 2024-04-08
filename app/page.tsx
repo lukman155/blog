@@ -10,6 +10,7 @@ const ArticleCard = dynamic(() => import('./Components/ArticleCard'), { ssr: fal
 
 const url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=be73dd1873b24f07a80978fce1435ec0";
 
+// Function to fetch data from the API
 const fetcher = async() => {
   const response = await fetch(url);
   const data = await response.json();
@@ -17,9 +18,12 @@ const fetcher = async() => {
 };
 
 const Home = () => {
+  // Fetch data using useSWR hook
   const { data, error, mutate } = useSWR('homepage', fetcher);
 
+  // Handle reload button click
   const handleReload = () => {
+    // Trigger data re-fetch
     mutate();
   };
 
@@ -35,8 +39,8 @@ const Home = () => {
           display: flex;
           flex-direction: column;
           gap: 1rem;
-          justify-content: center; /* Horizontally center */
-          align-items: center; /* Vertically center */
+          justify-content: center; 
+          align-items: center; 
           height: 70vh;
         }
 
