@@ -1,6 +1,9 @@
 'use client'
-import ArticleCard from '../Components/ArticleCard';
+import dynamic from 'next/dynamic'
 import { ArticleItem } from '../types';
+
+const ArticleCard = dynamic(() => import('../Components/ArticleCard'), { ssr: false})
+
 
 interface Props {
   article: ArticleItem;
