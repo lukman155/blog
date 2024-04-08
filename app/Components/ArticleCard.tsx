@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useState, useEffect } from "react";
 import { shortenAuthor, formatDateTime } from "../helpers";
 import ArticleModal from './ArticleModal';
+
 interface Props {
   article: ArticleItem;
   index: number;
@@ -17,7 +18,6 @@ const ArticleCard = ({ article, index }: Props) => {
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
-
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
