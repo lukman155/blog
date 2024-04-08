@@ -1,7 +1,12 @@
 'use client';
-import ArticleCard from "./Components/ArticleCard";
+// import ArticleCard from "./Components/ArticleCard";
 import { ArticleItem } from "./types/index";
 import useSWR from 'swr';
+import dynamic from 'next/dynamic'
+
+// Server Component:
+const ArticleCard = dynamic(() => import('./Components/ArticleCard'), { ssr: false})
+
 
 const url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=be73dd1873b24f07a80978fce1435ec0";
 
